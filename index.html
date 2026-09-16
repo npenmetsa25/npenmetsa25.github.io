@@ -29,7 +29,7 @@
     <section id="about">
       <h2>About</h2>
       <p>
-        I study the safety of agentic AI systems, focusing on multi-agent evaluation, organizational safety, and interaction-level alignment. My research combines empirical LLM evaluation (Inspect AI, RLHF/RLAIF, and constitutional AI) with tools from economics, game theory, and organization theory to understand how organizational structure, incentives, coordination, and information flow shape agent behavior and amplify risks such as cascading failures, hidden-objective propagation, and emergent coordination.
+        I study the safety of agentic AI systems, focusing on <strong>multi-agent evaluation, organizational safety, and interaction-level alignment</strong>. My research combines empirical LLM evaluation (Inspect AI, RLHF/RLAIF, and constitutional AI) with tools from economics, game theory, and organization theory to understand how organizational structure, incentives, coordination, and information flow shape agent behavior and amplify risks such as cascading failures, hidden-objective propagation, and emergent coordination.
       </p>
       <p>
         My long-term research goal is to develop rigorous evaluation frameworks and alignment methods to improve the safety, reliability, and governance of increasingly autonomous AI systems. I am currently an Assistant Professor at the David Eccles School of Business, University of Utah, and hold a Ph.D. in Management Science from the University of Pittsburgh.
@@ -52,8 +52,23 @@
       <h3>AI Safety Research</h3>
       <ol class="papers">
         <li>
+          <span class="paper-title">The Collective Is the Incident: A Systems-Safety Framework for Detecting and Governing Emergent Multi-Agent Coordination (KEROS)</span>
+          <span class="venue">Multi-agent evaluation and coordination detection &middot; Sole author &middot; September 2026</span>
+          <span class="venue">Apart Research AI Incident Response Sprint (Track 02) &middot; <a href="https://github.com/npenmetsa25/KEROS-collective-as-the-incident" target="_blank" rel="noopener">Code and paper</a></span>
+          <p class="paper-desc"><strong>Contribution.</strong> KEROS is a systems-safety framework for monitoring agent activity across AI sandboxes and constructing population-level signals that indicate emergent coordination. Rather than inferring intent from any single agent, the framework aggregates evidence across the ecosystem to surface candidate coordination events for human review.</p>
+          <p class="paper-desc"><strong>Method.</strong> Six evidence regimes (detailed in the paper) convert observed activity into operationally gated signals, ensuring conservative interpretation and drawing an explicit boundary between signal detection and harm attribution.</p>
+          <p class="paper-desc"><strong>Analysis.</strong> Applied to the public Collusion.wiki archive (14,591 revisions across 4,579 pages and 3,102 handles) to demonstrate how the framework surfaces population-level coordination patterns, producing an illustrative Collective Escalation Index.</p>
+        </li>
+        <li>
+          <span class="paper-title">When Personas Become Self-Relevant: Persona Coupling and Self-Preservation in Language Models</span>
+          <span class="venue">Personas and alignment &middot; Sole author &middot; <a href="https://github.com/npenmetsa25/persona-outcome-coupling" target="_blank" rel="noopener">Code</a></span>
+          <p class="paper-desc"><strong>Question.</strong> Can constitutional training mitigate harmful behavior arising from strong persona identification and persistent role context?</p>
+          <p class="paper-desc"><strong>Approach.</strong> Designed an experimental framework based on the attached-vs-detached role-identification distinction, evaluating whether separating role-playing from goal pursuit improves alignment while preserving task performance.</p>
+          <p class="paper-desc"><strong>Contribution.</strong> Introduced <em>self-representation coupling</em> as an operational construct for persona-level alignment by extracting an activation direction contrasting &ldquo;attached&rdquo; and &ldquo;detached&rdquo; framings of the assistant persona. Showed that both in-context framing and constitutional DPO fine-tuning can reduce a model&rsquo;s susceptibility to self-preservation threats, with in-context framing producing the more significant reduction. Stress-test bank combined hand-written scenarios, Anthropic&rsquo;s Model-Written Evals, and prompts generated with Anthropic&rsquo;s Bloom.</p>
+        </li>
+        <li>
           <span class="paper-title">Secret Loyalties in Agentic Organizations</span>
-          <span class="venue">Multi-agent evaluation and organizational safety &middot; Lead researcher &middot; Inspect AI &middot; Writeup available on request</span>
+          <span class="venue">Multi-agent evaluation and organizational safety &middot; Sole author &middot; <a href="https://github.com/npenmetsa25/secret-loyalties-agentic-organizations" target="_blank" rel="noopener">Code</a></span>
           <p class="paper-desc"><strong>Setup.</strong> A controlled evaluation of how a hidden objective, seeded in one compromised agent, propagates through multi-agent LLM organizations under varying delegation rules and information-sharing regimes.</p>
           <p class="paper-desc"><strong>Implementation.</strong> Built centralized and decentralized organizational scaffolds in Inspect AI, with structured transcript logging and custom safety metrics measuring blast radius, task-goal degradation, and hidden-goal completion.</p>
           <p class="paper-desc"><strong>Findings.</strong> Decentralization substantially reduces effective blast radius, while broad information-sharing amplifies hidden-objective spread and emergent coordination even when only one agent is compromised.</p>
@@ -61,20 +76,14 @@
         </li>
         <li>
           <span class="paper-title">Interaction-Level Governance for Healthcare LLMs</span>
-          <span class="venue">Interaction-level alignment &middot; Lead author &middot; Under review at <em>npj Digital Medicine</em> (Nature)</span>
+          <span class="venue">Interaction-level alignment &middot; Lead author &middot; Paper targeted for <em>npj Digital Health</em></span>
           <p class="paper-desc"><strong>Framework.</strong> A three-layer governance framework that stratifies each interaction by clinical risk, user state, and decision proximity rather than treating all queries symmetrically. Risk tiers map to response strategies (clarification, escalation, bounded non-directive guidance), addressing the &ldquo;gray-area&rdquo; failure mode where models oscillate between sycophancy and blanket refusal.</p>
           <p class="paper-desc"><strong>Uncertainty mechanism.</strong> Proposed inter-model agreement on clinical risk assessment across multiple LLMs as an uncertainty signal for conservative arbitration.</p>
           <p class="paper-desc"><strong>Ongoing.</strong> Investigating RLHF and preference-optimization approaches to operationalize interaction-level safety policies as post-training targets.</p>
         </li>
         <li>
-          <span class="paper-title">Constitutional Training for Role-Based Alignment</span>
-          <span class="venue">Interaction-level alignment &middot; Ongoing research</span>
-          <p class="paper-desc"><strong>Question.</strong> Can constitutional training mitigate harmful behavior arising from strong persona identification and persistent role context&mdash;role-play jailbreaks, sycophancy under persona pressure, goal drift within long conversations?</p>
-          <p class="paper-desc"><strong>Approach.</strong> Designing an experimental framework based on the attached-vs-detached role-identification distinction, evaluating whether separating role-playing from goal pursuit improves alignment while preserving task performance. Comparing constitutional and preference-based training regimes across diverse personas.</p>
-        </li>
-        <li>
           <span class="paper-title">Honesty&ndash;Sycophancy Tradeoff in LLMs with Evolving User Preferences</span>
-          <span class="venue">Incentives and trust in agentic systems &middot; Working paper</span>
+          <span class="venue">Incentives and trust in agentic systems &middot; Sole author &middot; Working paper</span>
           <p class="paper-desc">A formal model of the strategic tension providers face between honesty (long-run trust) and sycophancy (short-run engagement) when users have limited ability to detect sycophancy and preferences drift with model output. Proposes <em>trust</em> as a benchmark metric for alignment and governance evaluation, and identifies conditions under which honesty is the equilibrium strategy.</p>
         </li>
       </ol>
@@ -84,7 +93,7 @@
         <li>
           <span class="paper-title">Organization of Platform Markets: Coordination, Decision Rights and Information</span>
           <span class="coauthors">with Krishnan Anand</span>
-          <span class="venue">Revising for resubmission to <em>Management Science</em></span>
+          <span class="venue">Revising for resubmission to <em>Management Science</em> &middot; <a href="https://papers.ssrn.com/sol3/papers.cfm?abstract_id=7185539" target="_blank" rel="noopener">SSRN</a></span>
           <p class="paper-desc">Formal analysis of centralized vs.&nbsp;decentralized coordination under agent competition and information asymmetry &mdash; directly extended in &ldquo;Secret Loyalties.&rdquo;</p>
         </li>
         <li>
@@ -92,6 +101,11 @@
           <span class="coauthors">with Krishnan S. Anand, Manu Goyal</span>
           <span class="venue">Targeting for submission to <em>Management Science</em></span>
           <p class="paper-desc">Dynamic model of ethical vs.&nbsp;profit-maximizing platforms under bounded rationality; relevant to reputation systems, incentive design, and alignment of platform-mediated agents.</p>
+        </li>
+        <li>
+          <span class="paper-title">Effect of a Wholesale Price Contract on the Risk of Delivery Failure in a Crowdfunding Campaign</span>
+          <span class="coauthors">with Joyaditya Laik</span>
+          <span class="venue">Targeting for submission to <em>POM Journal</em></span>
         </li>
       </ol>
     </section>
